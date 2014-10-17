@@ -1,0 +1,15 @@
+{
+  "name": "Shapeways",
+  "version": "1.0.0",
+  "description": "interview question",
+  "main": "findPairs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adam barcan",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "underscore": "^1.7.0"
+  }
+}
