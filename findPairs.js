@@ -4,7 +4,7 @@ var findPairs   = require("./findPairsModule.js"),
 
 findPairs(list);
 
-(function () {
-  console.log("hi");
-}) ();
+// (function () {
+//   console.log("hi");
+// }) ();
 

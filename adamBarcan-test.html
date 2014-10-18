@@ -1,0 +1,368 @@
+<html>
+
+<head>
+    <style type="text/css">
+    .bold {
+        font-weight: bold;
+    }
+    #centered-box {
+        border: 3px solid black;
+        width: 500px;
+        height: 257px;
+        background-color: rgba(237, 239, 136, 0.50);
+        color: green;
+        padding: 1%;
+        margin: 0 auto;
+        transition: all 2s;
+    }
+    #centered-box a {
+        float: right;
+    }
+    .display-none {
+        display: none;
+    }
+    .questionContainer {
+        border: 1px solid #000000;
+    }
+    .questionContainer ul {} .questionContainer li {
+        padding: 14px;
+    }
+    .inline {
+        display: inline;
+    }
+    .instructionContentWithHeader {
+        color: #383838;
+    }
+    .invisibleQuestion {
+        display: none;
+    }
+    #question3 {
+        color: blue;
+    }
+    #question5 {
+        margin-top: 15px;
+        background: rgba(100, 100, 100, 0.25) url("http://placekitten.com/g/200/300") center repeat;
+        color: white;
+    }
+    #question5 > a {
+        color: white;
+    }
+    table {
+        border: 1px black solid;
+    }
+    td {
+        width: 45px;
+    }
+    table tr:nth-child(4) td:nth-child(3) {
+        background-color: red;
+    }
+    </style>
+    <script type="text/javascript">
+    // Q: Describe what these functions do using line comments
+    // function alertValue(value) alerts the contents of its value parameter in pop-up alert in browser window. 
+    function alertValue(value) {
+        window.alert(value);
+    }
+
+    //function beginTheTest() does following: (i) traverse DOM to retrieve the #introduction and #theTest elements by each element's ID; (ii) toggle the display value of each element, such that #introduction becomes invisible (actually, removed from DOM) and #theTest becomes visible and display in block format (stacked, with default page-width 100% until modified)
+    function beginTheTest() {
+        var introduction = document.getElementById("introduction");
+        var theTest = document.getElementById("theTest");
+
+        introduction.style.display = "none";
+        theTest.style.display = "block";
+    }
+
+    function alertDoneIt() {
+        alert("I've done it!")
+    }
+
+    function closeBox() {
+        var box = document.getElementById("centered-box");
+        var boxContent = document.getElementById("centered-box-para");
+        var boxAnchor = document.getElementById("centered-box-anchor");
+        box.style.height = 0;
+        box.style.border = "none";
+        box.style.background = "white";
+        boxAnchor.style.display = "none";
+        boxContent.style.display = "none";
+    }
+    </script>
+
+    <div id="demo" class="yui3-module">
+        <div class="yui3-hd">
+            <h3>Basic Animation</h3>
+            <a href="remove.php?id=#demo" title="fade out element" class="yui3-remove">
+                <em>x</em>
+            </a>
+        </div>
+        <div class="yui3-bd">
+            <p>Click the X in the header to fade out the element.</p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    YUI().use('anim', function(Y) {
+        var anim = new Y.Anim({
+            node: '#demo',
+            to: {
+                opacity: 0
+            }
+        });
+
+        var onClick = function(e) {
+            e.preventDefault();
+            anim.run();
+        };
+
+        Y.one('#demo .yui3-remove').on('click', onClick);
+
+    });
+    </script>
+    <title>Shapeways.com HTML Test</title>
+</head>
+
+<body>
+    <div id="demo" class="yui3-module">
+        <div class="yui3-hd">
+            <h3>Basic Animation</h3>
+            <a href="remove.php?id=#demo" title="fade out element" class="yui3-remove">
+                <em>x</em>
+            </a>
+        </div>
+        <div class="yui3-bd">
+            <p>Click the X in the header to fade out the element.</p>
+        </div>
+    </div>
+    <div id="introduction">
+        <h1>
+            Shapeways.com HTML Test
+        </h1>
+        <div class="instructionContentWithHeader">
+            <h2>
+                Instructions
+            </h2>
+            <p class="instructionContent">
+                Using the text-editor of your choice, make changes to this HTML document as instructed in the questions below.
+                <br>Each question will be marked with
+                <strong>Q</strong>.
+                <br>Please modify this HTML with your answers (keep all CSS and Javascript in this file).
+                <br>
+                <br>Save your test as [yourName]-test.html
+                <br>
+                <br>
+                <a href="javascript:void(0);" onclick="beginTheTest()">Click here to begin the test</a>
+            </p>
+        </div>
+    </div>
+    <style type="text/css">
+    .invisibleQuestion {
+        filter: alpha(opacity=40);
+        -moz-opacity: 0.4;
+        opacity: 0.4;
+    }
+    </style>
+    <div id="centered-box">
+        <a href="javascript:void(0);" onclick="closeBox()" id="centered-box-anchor" title="">Close the Box</a> 
+        <p id="centered-box-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div id="theTest" class="display-none">
+        <h2>
+            Questions
+        </h2>
+        <div id="questions" class="questionContainer">
+            <ul>
+                <li id="question1" class="question">
+                    <strong>Q:</strong>
+                    Add this question to the unordered list shown below.
+                </li>
+                <li id="question2" style="color:blue;">
+                    <strong>Q:</strong>
+                    Make this question blue using an inline style. // Note per question 11, one could replace this inline styling with: // in html: class = "blue" // in style sheet: .blue {color: blue;}
+                </li>
+                <li id="question3">
+                    <strong>Q:</strong>
+                    Make sure this question has a unique id. Make this question blue using an external id selector.
+                </li>
+                <li id="question4">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Feature Question</h3>
+                    <br>Add a table inside this list item.
+                    <br>&mdash; Make 5 rows and 3 columns.
+                    <br>&mdash; Give the cells a width of 45px.
+                    <br>&mdash; Give the table a border.
+                    <br>&mdash; Give the middle cell a red background.
+                    <br>
+
+                    <table>
+
+                        <tr>
+                            <th colspan="" rowspan="" headers="" scope=""></th>
+                            <th scope="col">col1</th>
+                            <th scope="col">col2</th>
+                            <th scope="col">col3</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">row1</th>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">row2</th>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">row3</th>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers="">RED</td>
+                            <td colspan="" rowspan="" headers=""></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">row4</th>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">row5</th>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                            <td colspan="" rowspan="" headers=""></td>
+                        </tr>
+
+                    </table>
+                </li>
+                <li id="question5">
+                    <strong>Q:</strong>
+                    Create a link to the URL http://www.shapeways.com/jobs and make the link text
+                    <a href="http://www.shapeways.com/jobs" title="" target="_blank">Jobs @ Shapeways</a>. Give this question a top margin of 15px, and a background image from the internet.
+                </li>
+                <li id="question6">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Feature Question</h3>
+                    <br>Create a button below this sentence.
+                    <br>
+                    <button type="" onclick="alertDoneIt()">Click</button>
+                    <br>When the button is clicked, make an alert box appear that says &quot;I&#39;ve done it!&quot;
+                    <br>
+                </li>
+                <li id="question7" class="bold">
+                    <strong>Q:</strong>
+                    Make this question bold using css. Use an external class selector to apply the style.
+                </li>
+                <li id="question8">
+                    <strong>Q:</strong>
+                    Make all elements in the Instructions section dark gray (text-color #383838;) using a single css class selector.
+                </li>
+                <li id="question9">
+                    <strong>Q:</strong>
+                    <span class="">
+                        Make this question visible.
+                    </span>
+                </li>
+                <li id="question10">
+                    <strong>Q:</strong>
+                    <span>
+                        Describe the differences between the IE6, IE7, and W3C box models.
+                        <p>
+                            <h4>CSS Box Model</h4>
+                            The CSS box model represents each html element on a page as a box with four possible properties: content, border, padding and margin. The below browser models differ on how these properties contribute to an element's height or width.
+                        </p>
+                        <p>
+                            <h4>IE6 box model</h4>
+                            In the IE6 box model, an element's default height or width property reflects the total combined height or width of its content, left and right borders and left and right padding. You can think of IE6 width as an element's visible height or width. For example, a div with width: 300px will continue to have a 300px width, even if a border or padding are added. Only the addition of margin would add to the element's width.
+                        </p>
+                        <p>
+                            <h4>IE7 box model</h4>
+                            The IE7 box model adopts the approach of the W3C box model, as described below.
+                        </p>
+                        <p>
+                            <h4>W3C box model</h4>
+                            In the W3C box model, an element's default width property reflects the width of its content only. Border, padding or margin are then added to content width. One can rever to IE6 box-model by styling an element with "box-sizing: border-box."
+                        </p>
+                    </span>
+                </li>
+                <li id="question11">
+                    <strong>Q:</strong>
+                    <span>
+                        Extract all inline styles in this test to external class selectors.
+                    </span>
+                </li>
+                <li id="question12">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Adventure Question</h3>
+                    <ul>
+                        <li>
+                            Add a semi-transparent box which is centered on the screen.
+                        </li>
+                        <li>
+                            Give the box a 3px black border.
+                        </li>
+                        <li>
+                            Make the background of the box a light-beige.
+                        </li>
+                        <li>
+                            Make the box 500px wide and 257px tall.
+                        </li>
+                        <li>
+                            Include a paragraph of green sample text in the box.
+                        </li>
+                        <li>
+                            <strong>BONUS:</strong>
+                            Have a link in the top right corner which closes the box.
+                        </li>
+                    </ul>
+                </li>
+                <li id="question13">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Adventure Question</h3>
+                    <br>Change the functionality of the &quot;begin the test&quot; link:
+                    <ul>
+                        <li>
+                            use the
+                            <strong>YUI javascript library</strong>to animate the introduction box closing.
+                        </li>
+                        <li>
+                            use the
+                            <strong>YUI javascript library</strong>to fade the test box in.
+                        </li>
+                    </ul>
+                </li>
+                <li id="question14">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Feature Question</h3>
+                    <br>
+                    <ol>
+                        <li>Show how to include a variable in a page using PHP</li>
+                        <li>Show how to loop over a collection of elements in PHP</li>
+                        <li>Show an IF/ELSEIF/ELSE conditional in PHP</li>
+                        <li>Show three ways to include content from another file in PHP</li>
+                    </ol>
+                </li>
+                <li id="question15">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Adventure Question</h3>
+                    <br>Describe the MVC design pattern as it applies to web servers - start from initial HTTP request and end with writing the response.
+                </li>
+                <li id="question16">
+                    <strong>Q:</strong>
+                    <h3 class="inline">Feature Question</h3>
+                    <br>Describe the pros and cons of version control.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <style type="text/css">
+    .invisibleQuestion {
+        color: #FFFFFF;
+    }
+    </style>
+</body>
+<script src="http://yui.yahooapis.com/3.18.0/build/yui/yui-min.js"></script>
+
+</html>
