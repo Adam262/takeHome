@@ -10,7 +10,7 @@ function findPairs(list, minPairs) {
                     if (err) throw err;
                     data = data.toString().split('\n').slice(0, 1000);
                     //console.log(data);
-                    console.log("got here1");
+                    //console.log("got here1");
                     callback(null, data);
                 })
 
@@ -35,7 +35,7 @@ function findPairs(list, minPairs) {
                 }
                 callback(null, hashTable);
                 //console.log(data[999]);
-                console.log("got here3")
+                //console.log("got here3")
             },
 
             function(hashTable, callback) {
@@ -45,7 +45,7 @@ function findPairs(list, minPairs) {
                 }
 
                 callback(null, hashTable)
-                  console.log("got here4")
+                  //console.log("got here4")
             }
         ],
 

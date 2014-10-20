@@ -47,9 +47,9 @@ function countFavs(list, minFavs) {
 
         function(err, hashTable) {
             if (err) return console.error("error: ", err);
-            console.log(hashTable);
+            //console.log(hashTable);
             console.log("hashTable length: ", Object.keys(hashTable).length);
-            //var pairs = _.pairs(hashTable);
+            var pairs = _.pairs(hashTable);
             console.log(_.pairs(hashTable));
         })
 }
