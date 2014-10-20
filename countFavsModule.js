@@ -1,7 +1,7 @@
 
 var fs = require("fs"),
     async = require("async"),
-    underscore = require("underscore");
+     _ = require("underscore");
 
 function countFavs(list, minFavs) {
 
@@ -24,7 +24,7 @@ function countFavs(list, minFavs) {
                     el = el.split(",");
                      //console.log("el: ", el);
                     el.forEach(function(elInner) {
-                        console.log("elInner: ", elInner)
+                        //console.log("elInner: ", elInner)
                         typeof hashTable[elInner] === "undefined" ?
                             hashTable[elInner] = 1 :
                             hashTable[elInner]++;
@@ -47,8 +47,10 @@ function countFavs(list, minFavs) {
 
         function(err, hashTable) {
             if (err) return console.error("error: ", err);
-
             console.log(hashTable);
+            console.log("hashTable length: ", Object.keys(hashTable).length);
+            //var pairs = _.pairs(hashTable);
+            console.log(_.pairs(hashTable));
         })
 }
 

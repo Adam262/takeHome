@@ -69,7 +69,7 @@
         var introduction = document.getElementById("introduction");
         var theTest = document.getElementById("theTest");
 
-        introduction.style.display = "none";
+        //introduction.style.display = "none";
         theTest.style.display = "block";
     }
 
@@ -88,53 +88,12 @@
         boxContent.style.display = "none";
     }
     </script>
-
-    <div id="demo" class="yui3-module">
-        <div class="yui3-hd">
-            <h3>Basic Animation</h3>
-            <a href="remove.php?id=#demo" title="fade out element" class="yui3-remove">
-                <em>x</em>
-            </a>
-        </div>
-        <div class="yui3-bd">
-            <p>Click the X in the header to fade out the element.</p>
-        </div>
-    </div>
-
-
-    <script type="text/javascript">
-    YUI().use('anim', function(Y) {
-        var anim = new Y.Anim({
-            node: '#demo',
-            to: {
-                opacity: 0
-            }
-        });
-
-        var onClick = function(e) {
-            e.preventDefault();
-            anim.run();
-        };
-
-        Y.one('#demo .yui3-remove').on('click', onClick);
-
-    });
-    </script>
+    <script src="http://yui.yahooapis.com/3.18.0/build/yui/yui-min.js"></script>
+    
     <title>Shapeways.com HTML Test</title>
 </head>
 
 <body>
-    <div id="demo" class="yui3-module">
-        <div class="yui3-hd">
-            <h3>Basic Animation</h3>
-            <a href="remove.php?id=#demo" title="fade out element" class="yui3-remove">
-                <em>x</em>
-            </a>
-        </div>
-        <div class="yui3-bd">
-            <p>Click the X in the header to fade out the element.</p>
-        </div>
-    </div>
     <div id="introduction">
         <h1>
             Shapeways.com HTML Test
@@ -326,10 +285,62 @@
                         <li>
                             use the
                             <strong>YUI javascript library</strong>to animate the introduction box closing.
+                    <script>
+                        YUI().use('anim', function (Y) {
+                            var node = Y.one('.instructionContentWithHeader');
+                            var introAnim = new Y.Anim({
+                            node: node,
+                            from: {
+                                
+                            },
+
+                            to: {
+                                opacity: 0,
+                                height: 0
+                            },
+                            duration: 5,
+
+                        });
+                            var onClick = function(e) {
+                                e.preventDefault();
+                                introAnim.run();
+                            };
+
+                            Y.one('#introduction').on('click', onClick);
+                    });
+                    </script>
                         </li>
                         <li>
                             use the
                             <strong>YUI javascript library</strong>to fade the test box in.
+
+                    <script>
+                        YUI().use('anim', function (Y) {
+                            var node = Y.one('#theTest');
+                            var testAnim = new Y.Anim({
+                            node: node,
+                            from: {
+                                opacity: 0
+
+                            },
+
+                            to: {
+                               
+                                opacity: 1
+                            },
+                            duration: 10,
+                            //iterations: 'infinite',
+                            //direction: 'alternate'
+                        });
+                            var onClick = function(e) {
+                                e.preventDefault();
+                                testAnim.run();
+                            };
+
+                            Y.one('#introduction').on('click', onClick);
+                    });
+                    </script>
+
                         </li>
                     </ul>
                 </li>
@@ -339,20 +350,80 @@
                     <br>
                     <ol>
                         <li>Show how to include a variable in a page using PHP</li>
+
+                        <?php 
+                            $user='Adam'; 
+                            echo "$user"; 
+                        ?>
+
                         <li>Show how to loop over a collection of elements in PHP</li>
+
+                        <?php 
+                            $studentIds = array( "aX7*45", "49%G82", "gh7!90", "y&P90n"); 
+                            foreach ($studentIds as $value) { 
+                                echo "$value"; 
+                            } 
+                        ?>
                         <li>Show an IF/ELSEIF/ELSE conditional in PHP</li>
+
+                        <?php 
+                            $pointsMargin = 0;
+                            $outcome; 
+                            if ($outcome === "goalScored") { 
+                                $pointsMargin++; 
+                                } elseif ($outcome === "goalAgainst") { 
+                                    $pointsMargin-- } 
+                                        else { 
+                                            echo "Tie Game!"; 
+                                } 
+                        ?>
                         <li>Show three ways to include content from another file in PHP</li>
+                            <?php include("test.php"); ?>
+                            <?php require("test.php"); ?>
+
                     </ol>
                 </li>
                 <li id="question15">
                     <strong>Q:</strong>
                     <h3 class="inline">Adventure Question</h3>
                     <br>Describe the MVC design pattern as it applies to web servers - start from initial HTTP request and end with writing the response.
+                    <h3>MVC Design Pattern</h3>
+
+                    <h3>
+                        <em>Overview</em>
+                    </h3>
+                    Model-View-Controller (MVC) is a design pattern that separates an app's files by their role. An MVC pattern's directories comprise: (i) models, which access a data store, (ii)views, whose HTML, JS and CSS files form the user interface and (iii) controllers, which contain the app's logic. Good MVC organizes code in a way that is logical, modular, easy to maintain and easy for new developers to grasp.
+
+                    <h3>
+                        <em>HTTP request and response over an MVC-designed app</em>
+                    </h3>
+                    HTTP requests typically start from user actions in the view. For example, a user may sign up, log in submit a form or click a link that requests a page. Let's use login as an example -- the user's login name and hashed password are sent to a back-end GET route contained in a controller file. This file contains functions that handle typical requests relating to a user -- ie, POST, or create, GET, or read, PUT, or update, and DELETE. In this case, our GET route's function reads user data from an object contained in the request. The same controller logic may contain a query to a database - eg, to look up the user by an ID, also container in the request body. Although the database query may be part of controller logic, the actual schema for the user's profile properties sit in a model directory -- ie, a directory of files that access a data base. For example, there is a schema containing properties associated with a user -- id, name, hashed password, etc. The model now communicates user status back to the controller - eg, by a JSON object. If a user is verified, the controller may serve a use profile back to the view. If a user is not verified, the controller may serve an error message such as 401.
+
+
                 </li>
                 <li id="question16">
                     <strong>Q:</strong>
                     <h3 class="inline">Feature Question</h3>
                     <br>Describe the pros and cons of version control.
+                    <h3>Version Control</h3>
+                    <ul>
+                        <strong>PROS</strong>
+                        <li>
+                            Version control enables groups to develop code together regardless of the group's size or geographic distribution. Proper version control even allows managers of large open-source projects to accept features from diverse users while protecting the core code's integrity.
+                        </li>
+                        <li>
+                            Version control allows even solitary users to track changes to a project over time. Rather than compare changes across members of a group, you can compare versions of your own program over time. You can add features as new branches -- only merge to the main branch when you have tested new features for bugs. And you can always revert to a working version if a thorny bug appears after merging new branches.
+                        </li>
+                    </ul>
+                    <ul>
+                        <strong>CONS</strong>
+                        <li>
+                            Potential for introducing bugs if good admin practices not followed -- ie, good review of pull requests
+                        </li>
+                        <li>
+                            Potential for revealing sensitive code, such as business logic or API keys -- again, if good practices not followed
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
@@ -363,6 +434,6 @@
     }
     </style>
 </body>
-<script src="http://yui.yahooapis.com/3.18.0/build/yui/yui-min.js"></script>
+
 
 </html>

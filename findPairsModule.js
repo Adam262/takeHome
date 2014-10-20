@@ -1,6 +1,6 @@
 var fs = require("fs"),
     async = require("async"),
-    underscore = require("underscore");
+    _ = require("underscore");
 
 function findPairs(list, minPairs) {
 
@@ -34,7 +34,7 @@ function findPairs(list, minPairs) {
                     })
                 }
                 callback(null, hashTable);
-                console.log(data[999]);
+                //console.log(data[999]);
                 console.log("got here3")
             },
 
