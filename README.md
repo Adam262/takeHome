@@ -18,11 +18,11 @@ This repo has my answers to a take-home coding challenge, for a developer interv
 To test the back-end code, do the following:
 
 + clone repo
-+ install Node.js
++ install [Node.js](https://gist.github.com/isaacs/579814)
 + on command line: npm install
 + on command line: node findPairs Artist_lists_small.txt 50
 
-To view the front-end code, just open the .html file in the browser.
+To test the front-end code, just open the .html file in the browser.
 
 **Optimization** 
 

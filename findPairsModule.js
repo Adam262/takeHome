@@ -70,7 +70,6 @@ function findPairs(list, minPairs) {
 
 var arrResult = makePairs(hashTable);
     arrResult = arrResult.filter(function(pair) {
-    //console.log(pair, countCommon(hashTable[pair[0]], hashTable[pair[1]])) 
     return countCommon(hashTable[pair[0]], hashTable[pair[1]]) >= minPairs;
 });
 
