@@ -70,7 +70,7 @@ function findPairs(list, minPairs) {
 
 var arrResult = makePairs(hashTable);
     arrResult = arrResult.filter(function(pair) {
-    console.log(pair, countCommon(hashTable[pair[0]], hashTable[pair[1]])) 
+    //console.log(pair, countCommon(hashTable[pair[0]], hashTable[pair[1]])) 
     return countCommon(hashTable[pair[0]], hashTable[pair[1]]) >= minPairs;
 });
 
@@ -82,6 +82,8 @@ var arrResult = makePairs(hashTable);
             if (err) return console.error("error: ", err);
 
             console.log(arrResult);
+            //return arrResult;
+            
         })
 }
 
