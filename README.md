@@ -20,7 +20,7 @@ To test the back-end code, do the following:
 + clone repo
 + install Node.js
 + on command line: npm install
-+ on command line: node findPairs.js Artist_lists_small.txt 50
++ on command line: node findPairs Artist_lists_small.txt 50
 
 To view the front-end code, just open the .html file in the browser.
 
