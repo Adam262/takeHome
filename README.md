@@ -8,8 +8,8 @@ This repo has my answers to a take-home coding challenge, for a developer interv
 + Underscore.js
 
 **Frontend**
-+YUI
-+CSS3 animation
++ YUI
++ CSS3 animation
 
 *Get Started*
 To test the back-end code, do the following:
@@ -21,11 +21,11 @@ To test the back-end code, do the following:
 
 
 *Optimization* 
-I recognize that this code runs in O(n^2) space. My main optimization is deleting from memory any artists that appear in fewer than 50 user favorite lists. The current set has 11,290 artists across 1000 user lists -- this optimization may not make much difference. But the optimization could make a difference on a much larger set of users and artists. 
+I recognize that this code runs in O(n^2) space. My main optimization is deleting from memory any artists that appear in fewer than 50 user favorite lists. This step reduces the hash table from 11,290 artists (who appear on at least 1 user list) to 124 artists.  This optimization may still not make much difference on a set of 1000 user lists. But it could impact a much larger set of users and artists. 
 
 *Challenges*
 + I wrote a script that parses a text list into a hash table of musician keys, each with a value array.  The value array holds Ids (represented as line numbers) of the users who selected the musician as a favorite. This step works well. 
-+ But the final step for finding pairs got very complicated. At best, it runs expensively.  For now, I wrote a script that returns one set of 50 matches per artists who have such matches, but not all sets of 50 matches. Here is that [script](http://repl.it/1ql/3); 
++ But the final step for finding pairs got very complicated. At best, it runs expensively.  For now, I wrote a script that returns one set of 50 matches per artists who have such matches, but not all sets of 50 matches. Here is that [script](http://repl.it/1rx/1); 
 + The next step is to integrate a revised version of above REPL script into my code. The steps are:
     + creates a global array to be returned
     + produces an array of the hash table's keys
