@@ -71,7 +71,7 @@
         window.alert(value);
     }
 
-    //function beginTheTest() does following: (i) traverse DOM to retrieve the #introduction and #theTest elements by each element's ID; (ii) toggle the display value of each element, such that #introduction becomes invisible (actually, removed from DOM) and #theTest becomes visible and display in block format (stacked, with default page-width 100% until modified)
+    //function beginTheTest() does following: (i) traverse DOM to retrieve the #introduction and #theTest elements by each element's ID; (ii) toggle the display value of each element, such that #introduction becomes invisible (actually, removed from DOM) and #theTest becomes visible and displays in block format (stacked, with default page-width 100% until modified)
     function beginTheTest() {
         var introduction = document.getElementById("introduction");
         var theTest = document.getElementById("theTest");
@@ -243,7 +243,7 @@
                         </p>
                         <p>
                             <h4>IE6 box model</h4>
-                            In the IE6 box model, an element's default height or width property reflects the total combined height or width of its content, left and right borders and left and right padding. You can think of IE6 width as an element's visible height or width. For example, a div with width: 300px will continue to have a 300px width, even if a border or padding are added. Only the addition of margin would add to the element's width.
+                            In the IE6 box model, an element's default height or width property reflects the total combined height or width of its content, borders and padding. You can think of IE6 width as an element's visible width. For example, a div with width: 300px will continue to have a 300px width, even if a border or padding are added. Only the addition of margin would add to the element's width.
                         </p>
                         <p>
                             <h4>IE7 box model</h4>
@@ -251,7 +251,7 @@
                         </p>
                         <p>
                             <h4>W3C box model</h4>
-                            In the W3C box model, an element's default width property reflects the width of its content only. Border, padding or margin are then added to content width. One can rever to IE6 box-model by styling an element with "box-sizing: border-box."
+                            In the W3C box model, an element's default height or width property reflects the height or width of its content only. Border, padding or margin are then added to content height or width. One can revert to IE6 box-model by styling an element with "box-sizing: border-box."
                         </p>
                     </span>
                 </li>
@@ -408,7 +408,7 @@
                     <h3>
                         <em>HTTP request and response over an MVC-designed app</em>
                     </h3>
-                    HTTP requests typically start from user actions in the view. For example, a user may sign up, log in submit a form or click a link that requests a page. Let's use login as an example -- the user's login name and hashed password are sent to a back-end GET route contained in a controller file. This file contains functions that handle typical requests relating to a user -- ie, POST, or create, GET, or read, PUT, or update, and DELETE. In this case, our GET route's function reads user data from an object contained in the request. The same controller logic may contain a query to a database - eg, to look up the user by an ID, also container in the request body. Although the database query may be part of controller logic, the actual schema for the user's profile properties sit in a model directory -- ie, a directory of files that access a data base. For example, there is a schema containing properties associated with a user -- id, name, hashed password, etc. The model now communicates user status back to the controller - eg, by a JSON object. If a user is verified, the controller may serve a use profile back to the view. If a user is not verified, the controller may serve an error message such as 401.
+                    HTTP requests typically start from user actions in the view. For example, a user may sign up, log in, submit a form or click a link that requests a page. Let's use login as an example -- the user's login name and hashed password are sent to a back-end GET route contained in a controller file. This file contains functions that handle typical requests relating to a user -- ie, POST, or create, GET, or read, PUT, or update, and DELETE. In this case, our GET route's function reads user data from an object contained in the request. The same controller logic may contain a query to a database - eg, to look up the user by an ID, also contained in the request body. Although the database query may be part of controller logic, the actual schema for the user's profile properties sit in a model directory -- ie, a directory of files that access a data base.For example, there is a schema containing properties associated with a user -- id, name, hashed password, etc. The model now communicates user status back to the controller - eg, by a JSON object. If a user is verified, the controller may serve a user profile back to the view. If a user is not verified, the controller may serve an error message such as 401.
 
 
                 </li>
@@ -429,10 +429,10 @@
                     <ul>
                         <strong>CONS</strong>
                         <li>
-                            Potential for introducing bugs if good admin practices not followed -- ie, good review of pull requests
+                            Potential for introducing bugs if good admin practices not followed -- ie, good review of pull requests.
                         </li>
                         <li>
-                            Potential for revealing sensitive code, such as business logic or API keys -- again, if good practices not followed
+                            Potential for revealing sensitive code, such as business logic or API keys -- again, if good practices not followed.
                         </li>
                     </ul>
                 </li>

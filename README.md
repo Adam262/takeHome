@@ -26,7 +26,7 @@ To test the front-end code, just open the .html file in the browser.
 
 **Optimization** 
 
-I recognize that this code runs in O(n^2) space. My main optimization is deleting from memory any artists that appear in fewer than 50 user favorite lists. This step reduces the hash table from 11,290 artists (who appear on at least 1 user list) to 124 artists.  Although this optimization may not make much difference on a set of 1000 user lists, it could impact a much larger set of users and artists. 
+I recognize that this code runs in O(n^2) time. My main optimization is deleting from memory any artists that appear in fewer than 50 user favorite lists. This step reduces the hash table from 11,290 artists (who appear on at least 1 user list) to 124 artists.  Although this optimization may not make much difference on a set of 1000 user lists, it could impact a much larger set of users and artists. 
 
 **Fun Facts**
 
